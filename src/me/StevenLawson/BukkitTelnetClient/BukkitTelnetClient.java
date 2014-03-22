@@ -172,9 +172,9 @@ public class BukkitTelnetClient extends javax.swing.JFrame
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
+        btn_disconnect1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         main_output = new javax.swing.JTextPane();
         txt_command = new javax.swing.JTextField();
@@ -185,28 +185,37 @@ public class BukkitTelnetClient extends javax.swing.JFrame
         btn_send = new javax.swing.JButton();
         txt_server = new javax.swing.JComboBox();
         chkAutoScroll = new javax.swing.JCheckBox();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+
+        btn_disconnect1.setText("Disconnect");
+        btn_disconnect1.setEnabled(false);
+        btn_disconnect1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_disconnect1ActionPerformed(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("BukkitTelnetClient");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         main_output.setEditable(false);
-        main_output.setFont(new java.awt.Font("Courier New", 0, 12)); // NOI18N
+        main_output.setBackground(new java.awt.Color(102, 102, 102));
+        main_output.setFont(new java.awt.Font("Minecraft", 0, 12)); // NOI18N
+        main_output.setForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(main_output);
 
         txt_command.setEnabled(false);
-        txt_command.addKeyListener(new java.awt.event.KeyAdapter()
-        {
-            public void keyPressed(java.awt.event.KeyEvent evt)
-            {
+        txt_command.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
                 txt_commandKeyPressed(evt);
             }
         });
 
         btn_connect.setText("Connect");
-        btn_connect.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btn_connect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_connectActionPerformed(evt);
             }
         });
@@ -217,20 +226,16 @@ public class BukkitTelnetClient extends javax.swing.JFrame
 
         btn_disconnect.setText("Disconnect");
         btn_disconnect.setEnabled(false);
-        btn_disconnect.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btn_disconnect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_disconnectActionPerformed(evt);
             }
         });
 
         btn_send.setText("Send");
         btn_send.setEnabled(false);
-        btn_send.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btn_send.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_sendActionPerformed(evt);
             }
         });
@@ -239,13 +244,16 @@ public class BukkitTelnetClient extends javax.swing.JFrame
 
         chkAutoScroll.setSelected(true);
         chkAutoScroll.setText("AutoScroll");
-        chkAutoScroll.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        chkAutoScroll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chkAutoScrollActionPerformed(evt);
             }
         });
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jTextArea2.setText("Notes ( You can change the text in this box to paste \nthings needed for a permaban request ) \n\nOriginaly made by Madgeek\nEditied by SupItsDillon");
+        jScrollPane3.setViewportView(jTextArea2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -256,43 +264,50 @@ public class BukkitTelnetClient extends javax.swing.JFrame
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_command, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
-                            .addComponent(txt_server, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(txt_command, javax.swing.GroupLayout.DEFAULT_SIZE, 499, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btn_send, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btn_connect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btn_connect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_send, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btn_disconnect)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_disconnect)
-                            .addComponent(chkAutoScroll))))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(chkAutoScroll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txt_server, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btn_connect, btn_disconnect, btn_send, chkAutoScroll});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btn_connect, btn_disconnect, chkAutoScroll});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 275, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_command, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_command, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
-                    .addComponent(btn_send)
-                    .addComponent(chkAutoScroll))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(btn_send, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(btn_connect)
-                    .addComponent(btn_disconnect)
                     .addComponent(txt_server, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_connect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_disconnect, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(chkAutoScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane3))
                 .addContainerGap())
         );
 
@@ -307,7 +322,11 @@ public class BukkitTelnetClient extends javax.swing.JFrame
         }
         if (evt.getKeyCode() == KeyEvent.VK_ENTER)
         {
-            connection_mgr.send_command(txt_command.getText());
+            try {
+                connection_mgr.send_command(txt_command.getText());
+            } catch (IOException ex) {
+                Logger.getLogger(BukkitTelnetClient.class.getName()).log(Level.SEVERE, null, ex);
+            }
             txt_command.selectAll();
         }
     }//GEN-LAST:event_txt_commandKeyPressed
@@ -332,7 +351,11 @@ public class BukkitTelnetClient extends javax.swing.JFrame
         {
             return;
         }
-        connection_mgr.trigger_disconnect();
+        try {
+            connection_mgr.trigger_disconnect();
+        } catch (IOException ex) {
+            Logger.getLogger(BukkitTelnetClient.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_disconnectActionPerformed
 
     private void btn_sendActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btn_sendActionPerformed
@@ -341,9 +364,17 @@ public class BukkitTelnetClient extends javax.swing.JFrame
         {
             return;
         }
-        connection_mgr.send_command(txt_command.getText());
+        try {
+            connection_mgr.send_command(txt_command.getText());
+        } catch (IOException ex) {
+            Logger.getLogger(BukkitTelnetClient.class.getName()).log(Level.SEVERE, null, ex);
+        }
         txt_command.selectAll();
     }//GEN-LAST:event_btn_sendActionPerformed
+
+    private void btn_disconnect1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_disconnect1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_disconnect1ActionPerformed
 
     private static void findAndSetLookAndFeel(final String searchStyleName)
     {
@@ -396,11 +427,14 @@ public class BukkitTelnetClient extends javax.swing.JFrame
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_connect;
     private javax.swing.JButton btn_disconnect;
+    private javax.swing.JButton btn_disconnect1;
     private javax.swing.JButton btn_send;
     private javax.swing.JCheckBox chkAutoScroll;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextPane main_output;
     private javax.swing.JTextField txt_command;
     private javax.swing.JComboBox txt_server;
