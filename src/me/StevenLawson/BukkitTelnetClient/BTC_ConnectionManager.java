@@ -63,20 +63,12 @@ public class BTC_ConnectionManager
         }
     }
 
-    public void trigger_disconnect()
+    public void trigger_disconnect() throws IOException
     {
         if (can_do_disconnect)
         {
             can_do_disconnect = false;
-
-            try
-            {
-                tc.disconnect();
-            }
-            catch (IOException ex)
-            {
-                log.log(Level.SEVERE, null, ex);
-            }
+            tc.disconnect();
         }
     }
 
@@ -93,18 +85,11 @@ public class BTC_ConnectionManager
         System.out.println("\nDisconnected.");
     }
 
-    public void send_command(String text)
+    public void send_command(String text) throws IOException
     {
-        try
-        {
-            System.out.println(text);
-            tc.getOutputStream().write((text + "\n").getBytes());
-            tc.getOutputStream().flush();
-        }
-        catch (IOException ex)
-        {
-            log.log(Level.SEVERE, null, ex);
-        }
+        System.out.println(text);
+        tc.getOutputStream().write((text + "\n").getBytes());
+        tc.getOutputStream().flush();
     }
 
     private void startConnectThread()
